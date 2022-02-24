@@ -1,3 +1,3 @@
 $(function(){
-  $('.navbar-text').style.color = "white";
+  $('.navbar-text').css("color", "white");
 });
