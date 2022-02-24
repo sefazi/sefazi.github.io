@@ -1,3 +1,3 @@
 $(function(){
-  $('#pars').html("nasi georeng");
+  $('.navbar-text').style.color = "white";
 });
