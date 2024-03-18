@@ -1,0 +1,59 @@
+<html>
+  <body>
+    <style>
+      .container {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .input-section,
+      .output-section {
+        flex: 1;
+        margin-right: 10px;
+      }
+
+      textarea {
+        width: 100%;
+        height: 200px;
+        resize: vertical;
+      }
+
+      button {
+        display: block;
+        margin-top: 10px;
+      }
+    </style>
+
+    <div class="container">
+      <div class="input-section">
+        <label for="input">Input</label>
+        <textarea id="input" placeholder="Enter JSON data here"></textarea>
+      </div>
+      <div class="output-section">
+        <label for="result">Result</label>
+        <textarea id="result" readonly></textarea>
+      </div>
+    </div>
+    <button onclick="parseJson()">Parse JSON</button>
+
+    <script>
+      function parseJson() {
+        result = query();
+        // Append Input Data
+        var fieldresult = document.getElementById("result");
+        fieldresult.value = JSON.stringify(result, null, 2);
+      }
+
+      function query() {
+        // Get Input Data
+        var stringdata = document.getElementById("input");
+        var jsondata = stringdata.value;
+        var data = JSON.parse(jsondata);
+
+        return _.chain(data)
+          .mapValues(() => "") // Map all values to empty strings
+          .value();
+      }
+    </script>
+  </body>
+</html>
