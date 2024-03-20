@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/lodash/lodash.min.js"></script>
+  </head>
+  <body>
+    <style>
+      .container {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .input-section,
+      .output-section {
+        flex: 1;
+        margin-right: 10px;
+      }
+
+      textarea {
+        width: 100%;
+        height: 200px;
+        resize: vertical;
+      }
+
+      button {
+        display: block;
+        margin-top: 10px;
+      }
+    </style>
+
+    <div class="container">
+      <div class="input-section">
+        <label for="input">Input</label>
+        <textarea id="input" placeholder="Enter String data here"></textarea>
+      </div>
+      <div class="output-section">
+        <label for="result">Result</label>
+        <textarea id="result" readonly></textarea>
+      </div>
+    </div>
+    <button onclick="rewriteString()">Rewrite String</button>
+
+    <script>
+      function rewriteString() {
+          // Get The Input
+           var input = document.getElementById("input");
+        
+          // Split the string by line breaks (\n)
+          var words = input.split('\n');
+      
+          // Capitalize the first letter of each word
+          for (var i = 0; i < words.length; i++) {
+              words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+          }
+      
+          // Join the words back together with line breaks (\n) between them
+          var result = words.join('\n');
+
+          // Append The Result
+          var fieldresult = document.getElementById("result");
+          fieldresult.value = result;
+      }
+    </script>
+  </body>
+</html>
