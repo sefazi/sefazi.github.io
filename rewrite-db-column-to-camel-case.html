@@ -47,9 +47,15 @@
           // Split the string by line breaks (\n)
           var words = input.split('\n');
       
-          // Capitalize the first letter of each word
+          // Process each line
           for (var i = 0; i < words.length; i++) {
-              words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+              // Capitalize the first letter of each word
+              var parts = words[i].split('_');
+              for (var j = 0; j < parts.length; j++) {
+                  parts[j] = parts[j].charAt(0).toUpperCase() + parts[j].slice(1);
+              }
+              // Join the parts back together without underscores
+              words[i] = parts.join('');
           }
       
           // Join the words back together with line breaks (\n) between them
